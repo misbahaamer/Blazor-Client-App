@@ -1,0 +1,40 @@
+﻿@page "/user"
+
+<h3>List Of Users</h3>
+
+@if (userDataList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>First Name</th>
+                <th>Last name</th>
+                <th>Email Address</th>
+                <th>Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in userDataList.Data)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.First_Name</td>
+                    <td>@item.Last_Name</td>
+                    <td>@item.Email</td>
+                    <td>@item.Avatar</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+@code {
+
+}

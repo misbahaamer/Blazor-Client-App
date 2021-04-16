@@ -1,4 +1,5 @@
 using Blazor_Client_App.Data;
+using Blazor_Client_App.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,10 @@ namespace Blazor_Client_App
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddHttpClient<IUserService, UserService>(client =>
+            {
+                client.BaseAddress = new Uri("https://reqres.in/");
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
